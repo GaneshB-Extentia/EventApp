@@ -15,6 +15,11 @@
         <item name="android:textColorHint">#696969</item>
     </style>
 
+    <style name="ButtonThemeTest" parent="android:Widget.Button">
+        <item name="customTypeface">fonts/quick.otf</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
     <style name="Font1_18_Black" parent="android:Widget.TextView">
         <item name="android:textColor">#000000</item>
         <item name="android:layout_height">wrap_content</item>

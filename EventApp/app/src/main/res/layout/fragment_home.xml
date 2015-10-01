@@ -24,6 +24,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="7dp"
         android:text="Test Button"
+        style="@style/ButtonThemeTest"
         android:textColor="@android:color/white"
         custom:buttonColor="@color/primary_color"
         custom:shadowEnabled="true" />

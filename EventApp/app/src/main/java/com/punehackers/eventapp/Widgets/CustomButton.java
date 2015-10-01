@@ -1,10 +1,12 @@
 package com.punehackers.eventapp.Widgets;
 
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.Rect;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.ShapeDrawable;
@@ -16,6 +18,9 @@ import android.view.View;
 import android.widget.Button;
 
 import com.punehackers.eventapp.R;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class CustomButton extends Button implements View.OnTouchListener {
 
@@ -35,6 +40,7 @@ public class CustomButton extends Button implements View.OnTouchListener {
     private Drawable unpressedDrawable;
 
     boolean isShadowColorDefined = false;
+    private static Map<String, Typeface> mTypefaces;
 
     public CustomButton(Context context) {
         super(context);
@@ -53,6 +59,34 @@ public class CustomButton extends Button implements View.OnTouchListener {
         super(context, attrs, defStyle);
         init();
         parseAttrs(context, attrs);
+
+        if (mTypefaces == null) {
+            mTypefaces = new HashMap<String, Typeface>();
+        }
+
+        final TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.TypefaceTextView);
+        if (array != null) {
+            final String typefaceAssetPath = array.getString(
+                    R.styleable.TypefaceTextView_customTypeface);
+
+            if (typefaceAssetPath != null) {
+                Typeface typeface = null;
+
+                if (mTypefaces.containsKey(typefaceAssetPath)) {
+                    typeface = mTypefaces.get(typefaceAssetPath);
+                } else {
+                    AssetManager assets = context.getAssets();
+                    typeface = Typeface.createFromAsset(assets, typefaceAssetPath);
+                    mTypefaces.put(typefaceAssetPath, typeface);
+                }
+
+                setTypeface(typeface);
+            }
+            array.recycle();
+        }
+
+
+
         this.setOnTouchListener(this);
     }
 
