@@ -31,7 +31,6 @@ public class EventActivity extends FragmentActivity {
         } else {
             super.onBackPressed();
         }
-        super.onBackPressed();
     }
 
 }
