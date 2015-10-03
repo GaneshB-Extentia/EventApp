@@ -4,6 +4,20 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
     </style>
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light">
+        <item name="colorButtonNormal">?attr/colorAccent</item>
+    </style>
+
+    <style name="NewAppTheme" parent="AppBaseTheme">
+        <!--<item name="android:buttonStyle">@style/Theme_Button</item>-->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor">@color/nav_drawer_header</item>
+        <item name="colorPrimary">@color/nav_drawer_header</item>
+        <item name="colorPrimaryDark">@color/status</item>
+        <item name="colorAccent">@color/nav_drawer_header</item>
+        <item name="actionBarStyle">@style/ThemeOverlay.AppCompat</item>
+    </style>
 
     <style name="EditTextAppTheme" parent="android:Widget.EditText">
         <item name="android:background">@drawable/apptheme_edit_text_holo_light</item>

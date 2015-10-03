@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="190dp"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/nav_drawer_header"
+        android:scaleType="centerCrop" />
+
+    <ImageView
+        android:id="@+id/lock_state_image"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:scaleType="centerCrop"
+        android:tint="@android:color/white" />
+
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/lock_state_desc"
+        android:layout_alignLeft="@+id/lock_state_image"
+        android:layout_alignRight="@+id/lock_state_image"
+        android:layout_below="@+id/lock_state_image"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:paddingBottom="4dp"
+        android:text="@string/app_name"
+        android:textColor="#FFF"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/lock_state_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/username"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@id/username"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:textSize="14sp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/lock_state_info_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/username"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@id/username"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:textSize="12sp"
+        android:visibility="gone" />
+
+
+</RelativeLayout>

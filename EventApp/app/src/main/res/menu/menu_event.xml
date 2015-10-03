@@ -1,6 +1,38 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" tools:context=".EventActivity">
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="100" app:showAsAction="never" />
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/menu_group_1"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:checked="true"
+            android:icon="@drawable/ic_settings_white_24dp"
+            android:title="@string/nav_home" />
+        <item
+            android:id="@+id/nav_bus"
+            android:icon="@drawable/ic_settings_white_24dp"
+            android:title="@string/nav_bus" />
+        <item
+            android:id="@+id/nav_train"
+            android:icon="@drawable/ic_settings_white_24dp"
+            android:title="@string/nav_train" />
+        <item
+            android:id="@+id/nav_rickshaw"
+            android:icon="@drawable/ic_settings_white_24dp"
+            android:title="@string/nav_rikshaw" />
+
+        <item
+            android:id="@+id/nav_map"
+            android:icon="@drawable/ic_settings_white_24dp"
+            android:title="@string/nav_map" />
+    </group>
+    <group
+        android:id="@+id/menu_group_2"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_settings_white_24dp"
+            android:title="@string/nav_profile" />
+
+    </group>
 </menu>
