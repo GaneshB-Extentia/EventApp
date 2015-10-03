@@ -6,24 +6,24 @@
         <item
             android:id="@+id/nav_home"
             android:checked="true"
-            android:icon="@drawable/ic_settings_white_24dp"
+            android:icon="@drawable/ic_home"
             android:title="@string/nav_home" />
         <item
             android:id="@+id/nav_bus"
-            android:icon="@drawable/ic_settings_white_24dp"
+            android:icon="@drawable/ic_bus"
             android:title="@string/nav_bus" />
         <item
             android:id="@+id/nav_train"
-            android:icon="@drawable/ic_settings_white_24dp"
+            android:icon="@drawable/ic_train"
             android:title="@string/nav_train" />
         <item
             android:id="@+id/nav_rickshaw"
-            android:icon="@drawable/ic_settings_white_24dp"
+            android:icon="@drawable/ic_rickshaw"
             android:title="@string/nav_rikshaw" />
 
         <item
             android:id="@+id/nav_map"
-            android:icon="@drawable/ic_settings_white_24dp"
+            android:icon="@drawable/ic_action_ic_map"
             android:title="@string/nav_map" />
     </group>
     <group
@@ -31,7 +31,7 @@
         android:checkableBehavior="none">
         <item
             android:id="@+id/nav_profile"
-            android:icon="@drawable/ic_settings_white_24dp"
+            android:icon="@drawable/ic_action_icn_profile"
             android:title="@string/nav_profile" />
 
     </group>

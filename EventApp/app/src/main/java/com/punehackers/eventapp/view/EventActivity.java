@@ -12,8 +12,11 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.punehackers.eventapp.R;
+import com.punehackers.eventapp.view.fragment.BusFragment;
 import com.punehackers.eventapp.view.fragment.HomeFragment;
+import com.punehackers.eventapp.view.fragment.RickshawFragment;
 import com.punehackers.eventapp.view.fragment.SplashFragment;
+import com.punehackers.eventapp.view.fragment.TrainFragment;
 
 /**
  * Created by user on 03-10-2015.
@@ -25,6 +28,7 @@ public class EventActivity extends AppCompatActivity implements
     public DrawerLayout mDrawerLayout;
     private Fragment mCurrentFragment;
     public Toolbar mToolbar;
+    private NavigationView mNavView;
     private CharSequence mTitle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,18 +51,13 @@ public class EventActivity extends AppCompatActivity implements
                     navigateToFragment(new HomeFragment());
                     break;
                 case R.id.nav_bus:
-                    Log.d("ShowPass", "from navigation");
-//                     new ChoosePasswordDialog().show(getSupportFragmentManager(), "show_password_dialog");
-                    navigateToFragment(new HomeFragment());
-                    // Don't close drawer here, and don't select the menu item
-//                    Toast.makeText(getBaseContext(), "Not Implemented! Coming Soon", Toast.LENGTH_LONG).show();
-                    return false;
+                    navigateToFragment(new BusFragment());
+                    break;
                 case R.id.nav_train:
-                    navigateToFragment(new HomeFragment());
-//                    Toast.makeText(getBaseContext(), "Not Implemented! Coming Soon", Toast.LENGTH_LONG).show();
+                    navigateToFragment(new TrainFragment());
                     break;
                 case R.id.nav_rickshaw:
-                    navigateToFragment(new HomeFragment());
+                    navigateToFragment(new RickshawFragment());
                     break;
                 case R.id.nav_map:
                     navigateToFragment(new HomeFragment());
@@ -97,6 +96,8 @@ public class EventActivity extends AppCompatActivity implements
             mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         mDrawerLayout.setDrawerListener(dt);
         dt.syncState();
+        mNavView = (NavigationView) findViewById(R.id.navView);
+        mNavView.setNavigationItemSelectedListener(this);
         mCurrentFragment=new SplashFragment();
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.container, mCurrentFragment).commit();

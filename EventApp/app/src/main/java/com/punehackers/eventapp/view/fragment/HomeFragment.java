@@ -23,8 +23,13 @@ public class HomeFragment extends Fragment {
         ((AppCompatActivity) getActivity()).getSupportActionBar().show();
         if (((EventActivity) getActivity()).mDrawerLayout != null)
             ((EventActivity) getActivity()).mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
-
+        initializeScreen();
         return rootView;
+    }
+
+    private void initializeScreen()
+    {
+        ((EventActivity) getActivity()).mToolbar.setTitle("Home");
     }
 
 }
