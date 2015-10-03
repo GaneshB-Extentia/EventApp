@@ -1,15 +1,13 @@
 package com.punehackers.eventapp.view.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.punehackers.eventapp.R;
-import com.punehackers.eventapp.view.EventActivity;
-import com.punehackers.eventapp.view.MainActivity;
 
 
 public class SplashFragment extends Fragment {
@@ -25,13 +23,16 @@ public class SplashFragment extends Fragment {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-//                ((EventActivity) getActivity()).moveToScreen(new HomeFragment());
-                Intent intent=new Intent(getActivity(), MainActivity.class);
-                startActivity(intent);
+                getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(null).add(R.id.container, new HomeFragment()).commitAllowingStateLoss();
+                finishFragment();
             }
         }, SPLASH_TIME_OUT);
 
         return rootView;
+    }
+
+    private void finishFragment() {
+        getActivity().getSupportFragmentManager().beginTransaction().remove(this).commit();
     }
 
 }
