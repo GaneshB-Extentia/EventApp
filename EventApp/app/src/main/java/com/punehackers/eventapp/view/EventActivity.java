@@ -3,6 +3,7 @@ package com.punehackers.eventapp.view;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +18,8 @@ import com.punehackers.eventapp.view.fragment.HomeFragment;
 import com.punehackers.eventapp.view.fragment.RickshawFragment;
 import com.punehackers.eventapp.view.fragment.SplashFragment;
 import com.punehackers.eventapp.view.fragment.TrainFragment;
+
+import java.util.List;
 
 /**
  * Created by user on 03-10-2015.
@@ -48,21 +51,27 @@ public class EventActivity extends AppCompatActivity implements
         if (id != mNavSelected) {
             switch (id) {
                 case R.id.nav_home:
+                    popFragment(mCurrentFragment);
                     navigateToFragment(new HomeFragment());
                     break;
                 case R.id.nav_bus:
+                    popFragment(mCurrentFragment);
                     navigateToFragment(new BusFragment());
                     break;
                 case R.id.nav_train:
+                    popFragment(mCurrentFragment);
                     navigateToFragment(new TrainFragment());
                     break;
                 case R.id.nav_rickshaw:
+                    popFragment(mCurrentFragment);
                     navigateToFragment(new RickshawFragment());
                     break;
                 case R.id.nav_map:
+                    popFragment(mCurrentFragment);
                     navigateToFragment(new HomeFragment());
                     return false;
                 case R.id.nav_profile:
+                    popFragment(mCurrentFragment);
                     navigateToFragment(new HomeFragment());
                     return false;
             }
@@ -75,10 +84,12 @@ public class EventActivity extends AppCompatActivity implements
     }
     private void navigateToFragment(Fragment f) {
         mCurrentFragment=f;
-        if(f instanceof HomeFragment)
-            getSupportFragmentManager().beginTransaction().add(R.id.container, f).addToBackStack(null).commit();
-        else
-            getSupportFragmentManager().beginTransaction().replace(R.id.container, f).commit();
+            getSupportFragmentManager().beginTransaction().add(R.id.container, f).addToBackStack(f.getClass().getSimpleName()).commit();
+
+    }
+    private void popFragment(Fragment f)
+    {
+            getSupportFragmentManager().popBackStack(f.getClass().getSimpleName(), FragmentManager.POP_BACK_STACK_INCLUSIVE);
     }
     private void initializeScreen()
     {
@@ -110,7 +121,25 @@ public class EventActivity extends AppCompatActivity implements
             finish();
         }
         else {
+            setToolbarName();
             super.onBackPressed();
+        }
+    }
+    private void setToolbarName()
+    {
+        List<Fragment> fragmentList=getSupportFragmentManager().getFragments();
+        if(fragmentList!=null && !fragmentList.isEmpty()) {
+            Fragment fragment = fragmentList.get(fragmentList.size()-1);
+            if (fragment instanceof HomeFragment) {
+                mToolbar.setTitle("Home");
+            } else if (fragment instanceof BusFragment) {
+                mToolbar.setTitle("Bus");
+            } else if (fragment instanceof TrainFragment) {
+                mToolbar.setTitle("Train");
+            }
+            if (fragment instanceof RickshawFragment) {
+                mToolbar.setTitle("Rickshaw");
+            }
         }
     }
 }
