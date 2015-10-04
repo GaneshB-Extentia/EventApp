@@ -1,15 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
+    android:gravity="center_horizontal"
     android:orientation="vertical">
 
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/icn_rickshaw_fare" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.punehackers.eventapp.Widgets.TypefaceEditText
+            android:id="@+id/rickshaw_fare_edittext1"
+            style="@style/EditTextAppTheme"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:background="@drawable/rounded_bg"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="00"
+            android:inputType="number" />
+
+
+        <com.punehackers.eventapp.Widgets.TypefaceEditText
+            android:id="@+id/rickshaw_fare_edittext2"
+            style="@style/EditTextAppTheme"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/rounded_bg"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="00"
+            android:inputType="number" />
+
+
+    </LinearLayout>
+
+
+    <com.punehackers.eventapp.Widgets.CustomButton
+        style="@style/ButtonThemeTest"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:text="Calculate Fare"
+        android:textColor="@android:color/white"
+        custom:buttonColor="@color/primary_color"
+        custom:shadowEnabled="true" />
+
     <com.punehackers.eventapp.Widgets.TypefaceTextView
-        style="@style/Font1_18_Black"
+        style="@style/Font1_25_Black"
+        android:layout_margin="10dp"
+        android:gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Rickshaw Info" />
+        android:text="Please pay to Rs. 25.00 Rickshaw Driver." />
 
-</RelativeLayout>
+
+</LinearLayout>
