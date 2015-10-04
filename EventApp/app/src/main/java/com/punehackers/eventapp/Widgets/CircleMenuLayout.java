@@ -11,6 +11,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.punehackers.eventapp.R;
 
 
 public class CircleMenuLayout extends ViewGroup {

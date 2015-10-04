@@ -42,7 +42,7 @@ public class HomeFragment extends Fragment {
 
         mCircleMenuLayout = (CircleMenuLayout) rootView.findViewById(R.id.id_menulayout);
         mCircleMenuLayout.setMenuItemIconsAndTexts(mItemImgs, mItemTexts);
-        mCircleMenuLayout.setOnMenuItemClickListener(new OnMenuItemClickListener() {
+        mCircleMenuLayout.setOnMenuItemClickListener(new CircleMenuLayout.OnMenuItemClickListener() {
             @Override
             public void itemClick(View view, int pos) {
 

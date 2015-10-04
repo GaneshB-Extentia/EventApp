@@ -1,15 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
     android:orientation="vertical">
 
-    <com.punehackers.eventapp.Widgets.TypefaceTextView
-        style="@style/Font1_18_Black"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:layout_centerInParent="true"
-        android:text="Bus Info" />
+        android:gravity="center">
+    <com.punehackers.eventapp.Widgets.CustomButton
+        android:id="@+id/browsDepots"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="7dp"
+        android:text="Browse Depots"
+        style="@style/ButtonThemeTest"
+        android:layout_margin="20dp"
+        android:textColor="@android:color/white"
+        custom:buttonColor="@color/primary_color"
+        custom:shadowEnabled="true" />
 
+        <com.punehackers.eventapp.Widgets.CustomButton
+            android:id="@+id/searchBus"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="7dp"
+            android:text="Search Bus"
+            style="@style/ButtonThemeTest"
+            android:layout_margin="20dp"
+            android:textColor="@android:color/white"
+            custom:buttonColor="@color/primary_color"
+            custom:shadowEnabled="true" />
+
+        <com.punehackers.eventapp.Widgets.CustomButton
+            android:id="@+id/buyTickets"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_margin="20dp"
+            android:text="Buy Tickets"
+            style="@style/ButtonThemeTest"
+            android:textColor="@android:color/white"
+            custom:buttonColor="@color/primary_color"
+            custom:shadowEnabled="true" />
+    </LinearLayout>
 </RelativeLayout>

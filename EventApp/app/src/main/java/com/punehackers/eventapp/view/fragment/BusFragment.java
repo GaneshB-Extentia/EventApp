@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.punehackers.eventapp.R;
+import com.punehackers.eventapp.Widgets.CustomButton;
 import com.punehackers.eventapp.view.EventActivity;
 
 /**
@@ -16,6 +17,7 @@ import com.punehackers.eventapp.view.EventActivity;
 public class BusFragment extends Fragment {
 
     private View rootView;
+    private CustomButton busDepotListButton;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -26,5 +28,12 @@ public class BusFragment extends Fragment {
     private void initializeScreen()
     {
         ((EventActivity) getActivity()).mToolbar.setTitle("Bus");
+        busDepotListButton=(CustomButton)rootView.findViewById(R.id.browsDepots);
+        busDepotListButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().getSupportFragmentManager().beginTransaction().add(R.id.container,new BusListFragment()).commitAllowingStateLoss();
+            }
+        });
     }
 }
