@@ -18,6 +18,8 @@ public class BusFragment extends Fragment {
 
     private View rootView;
     private CustomButton busDepotListButton;
+    private CustomButton busListButton;
+    private CustomButton busTicketButton;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -32,7 +34,25 @@ public class BusFragment extends Fragment {
         busDepotListButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getActivity().getSupportFragmentManager().beginTransaction().add(R.id.container,new BusListFragment()).commitAllowingStateLoss();
+                getActivity().getSupportFragmentManager().beginTransaction().add(R.id.container, new BusListFragment()).commitAllowingStateLoss();
+            }
+        });
+
+        busListButton=(CustomButton)rootView.findViewById(R.id.searchBus);
+        busListButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((EventActivity) getActivity()).mToolbar.setTitle("Search Bus");
+                getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(new BusFareFragment().getClass().getSimpleName()).add(R.id.container, new BusFareFragment()).commitAllowingStateLoss();
+            }
+        });
+
+        busTicketButton=(CustomButton)rootView.findViewById(R.id.buyTickets);
+        busTicketButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((EventActivity) getActivity()).mToolbar.setTitle("Buy Bus Tickets");
+                getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(new BusFareFragment().getClass().getSimpleName()).add(R.id.container, new BusFareFragment()).commitAllowingStateLoss();
             }
         });
     }
