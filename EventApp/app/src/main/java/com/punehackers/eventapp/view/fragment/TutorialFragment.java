@@ -17,6 +17,7 @@ import android.widget.RelativeLayout;
 import com.punehackers.eventapp.R;
 import com.punehackers.eventapp.Widgets.CirclePageIndicator;
 import com.punehackers.eventapp.Widgets.PageIndicator;
+import com.punehackers.eventapp.view.EventActivity;
 
 import java.util.ArrayList;
 
@@ -51,6 +52,7 @@ public class TutorialFragment extends Fragment {
     private void initializeScreen()
     {
         initializeResourcesList();
+        ((EventActivity) getActivity()).mToolbar.setTitle("Register Now");
         imagePageAdapter = new ImagePagerAdapter();
         pager=(ViewPager)rootView.findViewById(R.id.pager);
         pager.setAdapter(imagePageAdapter);

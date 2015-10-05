@@ -24,7 +24,7 @@
             android:layout_below="@id/pager"
             android:layout_marginTop="10dp"
             android:padding="10dip"
-            app:fillColor="#bbbbbbbb"
+            app:fillColor="#2095e8"
             app:pageColor="#88888888"
             app:radius="3dp"
             app:snap="true"
