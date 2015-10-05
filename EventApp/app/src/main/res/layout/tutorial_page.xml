@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@android:color/white"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="450dp"></android.support.v4.view.ViewPager>
+
+        <com.punehackers.eventapp.Widgets.CirclePageIndicator
+            android:id="@+id/indicator"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pager"
+            android:layout_marginTop="10dp"
+            android:padding="10dip"
+            app:fillColor="#bbbbbbbb"
+            app:pageColor="#88888888"
+            app:radius="3dp"
+            app:snap="true"
+            app:strokeColor="#88888888"
+            app:strokeWidth="1dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <com.punehackers.eventapp.Widgets.CustomButton
+                android:id="@+id/browsDepots"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:text="Sign Up"
+                style="@style/ButtonThemeTest"
+                android:textColor="@android:color/white"
+                custom:buttonColor="@color/primary_color"
+                custom:shadowEnabled="true" />
+
+            <com.punehackers.eventapp.Widgets.CustomButton
+                android:id="@+id/searchBus"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:text="Login"
+                style="@style/ButtonThemeTest"
+                android:layout_marginLeft="10dp"
+                android:textColor="@android:color/white"
+                custom:buttonColor="@color/primary_color"
+                custom:shadowEnabled="true" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

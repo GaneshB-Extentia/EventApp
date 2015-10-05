@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -14,10 +15,13 @@ import android.view.View;
 
 import com.punehackers.eventapp.R;
 import com.punehackers.eventapp.view.fragment.BusFragment;
+import com.punehackers.eventapp.view.fragment.BusListFragment;
+import com.punehackers.eventapp.view.fragment.CabFragment;
 import com.punehackers.eventapp.view.fragment.HomeFragment;
 import com.punehackers.eventapp.view.fragment.RickshawFragment;
 import com.punehackers.eventapp.view.fragment.SplashFragment;
 import com.punehackers.eventapp.view.fragment.TrainFragment;
+import com.punehackers.eventapp.view.fragment.TutorialFragment;
 
 import java.util.List;
 
@@ -29,15 +33,25 @@ public class EventActivity extends AppCompatActivity implements
 
     private int mNavSelected = R.id.nav_home; // 0 is an invalid resId
     public DrawerLayout mDrawerLayout;
-    private Fragment mCurrentFragment;
+    public Fragment mCurrentFragment;
     public Toolbar mToolbar;
     private NavigationView mNavView;
     private CharSequence mTitle;
+    private int id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
         initializeScreen();
+        getSupportFragmentManager().addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
+            @Override
+            public void onBackStackChanged() {
+                Fragment fragment=getSupportFragmentManager().findFragmentById(R.id.container);
+                if(fragment!=null){
+                    setToolbarName(fragment);
+                }
+            }
+        });
     }
 
     @Override
@@ -47,12 +61,12 @@ public class EventActivity extends AppCompatActivity implements
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        int id = item.getItemId();
+        id = item.getItemId();
         if (id != mNavSelected) {
             switch (id) {
                 case R.id.nav_home:
                     popFragment(mCurrentFragment);
-                    navigateToFragment(new HomeFragment());
+                    startHomeFragment();
                     break;
                 case R.id.nav_bus:
                     popFragment(mCurrentFragment);
@@ -62,6 +76,10 @@ public class EventActivity extends AppCompatActivity implements
                     popFragment(mCurrentFragment);
                     navigateToFragment(new TrainFragment());
                     break;
+                case R.id.nav_cab:
+                    popFragment(mCurrentFragment);
+                    navigateToFragment(new CabFragment());
+                    break;
                 case R.id.nav_rickshaw:
                     popFragment(mCurrentFragment);
                     navigateToFragment(new RickshawFragment());
@@ -69,11 +87,11 @@ public class EventActivity extends AppCompatActivity implements
                 case R.id.nav_map:
                     popFragment(mCurrentFragment);
                     navigateToFragment(new HomeFragment());
-                    return false;
+                   break;
                 case R.id.nav_profile:
                     popFragment(mCurrentFragment);
-                    navigateToFragment(new HomeFragment());
-                    return false;
+                    navigateToFragment(new TutorialFragment());
+                    break;
             }
         }
 
@@ -87,8 +105,21 @@ public class EventActivity extends AppCompatActivity implements
             getSupportFragmentManager().beginTransaction().add(R.id.container, f).addToBackStack(f.getClass().getSimpleName()).commit();
 
     }
+
+    private void startHomeFragment()
+    {
+        List<Fragment> fragmentList=getSupportFragmentManager().getFragments();
+        for(Fragment fragment:fragmentList)
+        {
+            if(fragment instanceof HomeFragment)
+                getSupportFragmentManager().popBackStack(fragment.getClass().getSimpleName(), FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        }
+        getSupportFragmentManager().beginTransaction().add(R.id.container, new HomeFragment()).addToBackStack(new HomeFragment().getClass().getSimpleName()).commit();
+
+    }
     private void popFragment(Fragment f)
     {
+            if(!(f instanceof HomeFragment))
             getSupportFragmentManager().popBackStack(f.getClass().getSimpleName(), FragmentManager.POP_BACK_STACK_INCLUSIVE);
     }
     private void initializeScreen()
@@ -116,20 +147,20 @@ public class EventActivity extends AppCompatActivity implements
 
     @Override
     public void onBackPressed() {
+        mNavSelected=-1;
         if(getSupportFragmentManager().getBackStackEntryCount()==1)
         {
             finish();
         }
         else {
-            setToolbarName();
             super.onBackPressed();
         }
     }
-    private void setToolbarName()
+
+
+
+    private void setToolbarName(Fragment fragment)
     {
-        List<Fragment> fragmentList=getSupportFragmentManager().getFragments();
-        if(fragmentList!=null && !fragmentList.isEmpty()) {
-            Fragment fragment = fragmentList.get(fragmentList.size()-1);
             if (fragment instanceof HomeFragment) {
                 mToolbar.setTitle("Home");
             } else if (fragment instanceof BusFragment) {
@@ -137,9 +168,12 @@ public class EventActivity extends AppCompatActivity implements
             } else if (fragment instanceof TrainFragment) {
                 mToolbar.setTitle("Train");
             }
+            else if (fragment instanceof BusListFragment) {
+                mToolbar.setTitle("Depot List");
+            }
             if (fragment instanceof RickshawFragment) {
                 mToolbar.setTitle("Rickshaw");
             }
-        }
+
     }
 }

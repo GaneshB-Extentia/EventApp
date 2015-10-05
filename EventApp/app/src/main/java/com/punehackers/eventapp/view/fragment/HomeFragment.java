@@ -22,7 +22,7 @@ public class HomeFragment extends Fragment {
     private String[] mItemTexts = new String[] { "BUS ", "CAB", "RICKSHAW",
             "TRAIN"};
     private int[] mItemImgs = new int[] { R.drawable.ic_bus,
-            R.drawable.ic_rickshaw, R.drawable.ic_rickshaw,
+            R.drawable.ic_rickshaw, R.drawable.ic_action_cab,
             R.drawable.ic_train };
 
     @Override

@@ -16,8 +16,8 @@ import com.punehackers.eventapp.R;
 
 public class CircleMenuLayout extends ViewGroup {
     private int mRadius;
-    private static final float RADIO_DEFAULT_CHILD_DIMENSION = 1 / 4f;
-    private float RADIO_DEFAULT_CENTERITEM_DIMENSION = 1 / 3f;
+    private static final float RADIO_DEFAULT_CHILD_DIMENSION = 1 / 6f;
+    private float RADIO_DEFAULT_CENTERITEM_DIMENSION = 1 / 2f;
     private static final float RADIO_PADDING_LAYOUT = 1 / 12f;
 
     private static final int FLINGABLE_VALUE = 300;
@@ -409,10 +409,13 @@ public class CircleMenuLayout extends ViewGroup {
                 });
             }
             if (tv != null) {
-                tv.setVisibility(View.VISIBLE);
+                tv.setVisibility(View.GONE);
                 tv.setText(mItemTexts[i]);
             }
-
+           /* LinearLayout.LayoutParams params=new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
+            params.setMargins((int) Constants.convertDpToPixels(10,getContext()),(int) Constants.convertDpToPixels(10,getContext()),(int) Constants.convertDpToPixels(10,getContext()),(int) Constants.convertDpToPixels(10,getContext()));
+            view.setLayoutParams(params);
+            setPadding((int) Constants.convertDpToPixels(10,getContext()),(int) Constants.convertDpToPixels(10,getContext()),(int) Constants.convertDpToPixels(10,getContext()),(int) Constants.convertDpToPixels(10,getContext()));*/
             // 添加view到容器中
             addView(view);
         }

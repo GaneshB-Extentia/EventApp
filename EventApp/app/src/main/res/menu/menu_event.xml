@@ -10,12 +10,16 @@
             android:title="@string/nav_home" />
         <item
             android:id="@+id/nav_bus"
-            android:icon="@drawable/ic_bus"
+            android:icon="@drawable/ic_action_bus_icon"
             android:title="@string/nav_bus" />
         <item
             android:id="@+id/nav_train"
             android:icon="@drawable/ic_train"
             android:title="@string/nav_train" />
+        <item
+            android:id="@+id/nav_cab"
+            android:icon="@drawable/ic_action_cab"
+            android:title="@string/nav_cab" />
         <item
             android:id="@+id/nav_rickshaw"
             android:icon="@drawable/ic_rickshaw"

@@ -34,7 +34,8 @@ public class BusFragment extends Fragment {
         busDepotListButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getActivity().getSupportFragmentManager().beginTransaction().add(R.id.container, new BusListFragment()).commitAllowingStateLoss();
+                ((EventActivity) getActivity()).mToolbar.setTitle("Depot List");
+                getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(new BusListFragment().getClass().getSimpleName()).add(R.id.container, new BusListFragment()).commitAllowingStateLoss();
             }
         });
 

@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.punehackers.eventapp.R;
+import com.punehackers.eventapp.Utility.Constants;
 import com.punehackers.eventapp.adapters.BusDepotAdapter;
 import com.punehackers.eventapp.viewholder.BusDepot;
 
@@ -41,9 +42,10 @@ public class BusListFragment extends Fragment {
         recyclerView.setAdapter(busDepotAdapter);
     }
 
+
     private void initializeList() {
         busDepotList = new ArrayList<BusDepot>();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i <=20; i++) {
             BusDepot busDepot = new BusDepot();
             switch (i) {
                 case 0:

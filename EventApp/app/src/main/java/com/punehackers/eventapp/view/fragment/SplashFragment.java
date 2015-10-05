@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.punehackers.eventapp.R;
+import com.punehackers.eventapp.view.EventActivity;
 
 
 public class SplashFragment extends Fragment {
@@ -23,7 +24,8 @@ public class SplashFragment extends Fragment {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(null).add(R.id.container, new HomeFragment()).commitAllowingStateLoss();
+                ((EventActivity)getActivity()).mCurrentFragment=new HomeFragment();
+                getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(new HomeFragment().getClass().getSimpleName()).add(R.id.container,  ((EventActivity)getActivity()).mCurrentFragment).commitAllowingStateLoss();
                 finishFragment();
             }
         }, SPLASH_TIME_OUT);

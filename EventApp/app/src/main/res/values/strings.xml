@@ -6,9 +6,10 @@
 
     <!--Nav menu names-->
     <string name="nav_home">Home</string>
-    <string name="nav_bus">Travel By Bus</string>
-    <string name="nav_train">Travel By Train</string>
-    <string name="nav_rikshaw">Travel By Rickshaw</string>
+    <string name="nav_bus">Bus</string>
+    <string name="nav_train">Train</string>
+    <string name="nav_rikshaw">Rickshaw</string>
+    <string name="nav_cab">Cab</string>
     <string name="nav_profile">My Profile</string>
     <string name="nav_map">Map</string>
     <string name="nav_pro">Pro</string>
