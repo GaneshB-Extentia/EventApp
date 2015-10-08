@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:padding="20dp"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/userIdET"
+        android:textStyle="bold"
+        style="@style/Font1_18_Black"
+        android:hint="email"
+        android:textColorHint="#bdbdbd"
+        android:drawableLeft="@drawable/icon_email"
+        android:drawablePadding="5dp"
+        android:inputType="textEmailAddress"
+        android:singleLine="true"
+        android:textColor="@android:color/black"
+        android:layout_width="match_parent"
+        android:layout_height="70dp" />
+
+    <EditText
+        android:id="@+id/passwordIdET"
+        android:textStyle="bold"
+        style="@style/Font1_18_Black"
+        android:layout_marginTop="10dp"
+        android:drawablePadding="5dp"
+        android:textColorHint="#bdbdbd"
+        android:inputType="textPassword"
+        android:hint="password"
+        android:drawableLeft="@drawable/icon_key"
+        android:textColor="@android:color/black"
+        android:layout_width="match_parent"
+        android:layout_height="70dp" />
+    <com.punehackers.eventapp.Widgets.CustomButton
+        android:id="@+id/signInBtn"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="Login"
+        style="@style/ButtonThemeTest"
+        android:layout_marginTop="15dp"
+        android:textColor="@android:color/white"
+        custom:buttonColor="@color/primary_color"
+        custom:shadowEnabled="true" />
+    <TextView
+        android:id="@+id/forgotPassTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:text="Forgot Password?"
+        android:textColor="@color/primary_dark_color"/>
+
+</LinearLayout>

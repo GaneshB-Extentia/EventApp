@@ -47,8 +47,8 @@ public class EventActivity extends AppCompatActivity implements
             @Override
             public void onBackStackChanged() {
                 Fragment fragment=getSupportFragmentManager().findFragmentById(R.id.container);
-                if(fragment!=null){
-                    setToolbarName(fragment);
+                if(fragment!=null && fragment.getTag()!=null){
+                    mToolbar.setTitle(fragment.getTag());
                 }
             }
         });
@@ -102,7 +102,7 @@ public class EventActivity extends AppCompatActivity implements
     }
     private void navigateToFragment(Fragment f) {
         mCurrentFragment=f;
-            getSupportFragmentManager().beginTransaction().add(R.id.container, f).addToBackStack(f.getClass().getSimpleName()).commit();
+            getSupportFragmentManager().beginTransaction().add(R.id.container, f,getTag(f)).addToBackStack(f.getClass().getSimpleName()).commit();
 
     }
 
@@ -159,21 +159,28 @@ public class EventActivity extends AppCompatActivity implements
 
 
 
-    private void setToolbarName(Fragment fragment)
+    private String getTag(Fragment fragment)
     {
+        String tag="";
             if (fragment instanceof HomeFragment) {
-                mToolbar.setTitle("Home");
+                tag= "Home";
             } else if (fragment instanceof BusFragment) {
-                mToolbar.setTitle("Bus");
+                tag= "Bus";
             } else if (fragment instanceof TrainFragment) {
-                mToolbar.setTitle("Train");
+                tag= "Train";
             }
             else if (fragment instanceof BusListFragment) {
-                mToolbar.setTitle("Depot List");
+                tag= "Depot List";
+            }
+            else if (fragment instanceof CabFragment) {
+                tag= "Cab";
+            }
+            else if (fragment instanceof TutorialFragment) {
+                tag= "Register Now";
             }
             if (fragment instanceof RickshawFragment) {
-                mToolbar.setTitle("Rickshaw");
+                tag= "Rickshaw";
             }
-
+        return tag;
     }
 }

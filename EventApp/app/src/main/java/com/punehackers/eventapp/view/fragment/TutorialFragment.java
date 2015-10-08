@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 
 import com.punehackers.eventapp.R;
 import com.punehackers.eventapp.Widgets.CirclePageIndicator;
+import com.punehackers.eventapp.Widgets.CustomButton;
 import com.punehackers.eventapp.Widgets.PageIndicator;
 import com.punehackers.eventapp.view.EventActivity;
 
@@ -24,11 +25,13 @@ import java.util.ArrayList;
 /**
  * Created by Chintamani.Kulkarni on 10/5/2015.
  */
-public class TutorialFragment extends Fragment {
+public class TutorialFragment extends Fragment implements View.OnClickListener{
 
     private View rootView;
     private ArrayList<Integer> resourceIdList;
     ViewPager pager;
+    private CustomButton signInBtn;
+    private CustomButton signUpBtn;
     private ImagePagerAdapter imagePageAdapter;
     protected PageIndicator indicator;
 
@@ -56,6 +59,10 @@ public class TutorialFragment extends Fragment {
         imagePageAdapter = new ImagePagerAdapter();
         pager=(ViewPager)rootView.findViewById(R.id.pager);
         pager.setAdapter(imagePageAdapter);
+        signInBtn=(CustomButton)rootView.findViewById(R.id.signInBtn);
+        signUpBtn=(CustomButton)rootView.findViewById(R.id.signUpBtn);
+        signUpBtn.setOnClickListener(this);
+        signInBtn.setOnClickListener(this);
         if (resourceIdList != null && resourceIdList.size() > 1) {
             indicator = (CirclePageIndicator) rootView.findViewById(R.id.indicator);
             indicator.setViewPager(pager);
@@ -71,6 +78,18 @@ public class TutorialFragment extends Fragment {
         collection.addView(layoutView);
         return layoutView;
     }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId())
+        {
+            case R.id.signInBtn: getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(new SigninFragment().getClass().getSimpleName()).add(R.id.container,new SigninFragment(),"Sign In").commitAllowingStateLoss();
+                                 break;
+            case R.id.signUpBtn: getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(new SignUpFragment().getClass().getSimpleName()).add(R.id.container,new SignUpFragment(), "Sign Up").commitAllowingStateLoss();
+                                 break;
+        }
+    }
+
     private class ImagePagerAdapter extends PagerAdapter {
 
         public ImagePagerAdapter() {

@@ -21,9 +21,9 @@ public class HomeFragment extends Fragment {
 
     private String[] mItemTexts = new String[] { "BUS ", "CAB", "RICKSHAW",
             "TRAIN"};
-    private int[] mItemImgs = new int[] { R.drawable.ic_bus,
-            R.drawable.ic_rickshaw, R.drawable.ic_action_cab,
-            R.drawable.ic_train };
+    private int[] mItemImgs = new int[] { R.drawable.img_new_bus,
+            R.drawable.img_new_rickshaw, R.drawable.img_new_cab,
+            R.drawable.img_new_train };
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -54,12 +54,12 @@ public class HomeFragment extends Fragment {
                         break;
                     case 1:
                         getActivity().getSupportFragmentManager().beginTransaction()
-                                .addToBackStack(null).add(R.id.container, new BusFragment()).commitAllowingStateLoss();
+                                .addToBackStack(null).add(R.id.container, new RickshawFragment()).commitAllowingStateLoss();
                         break;
 
                     case 2:
                         getActivity().getSupportFragmentManager().beginTransaction()
-                                .addToBackStack(null).add(R.id.container, new RickshawFragment()).commitAllowingStateLoss();
+                                .addToBackStack(null).add(R.id.container, new CabFragment()).commitAllowingStateLoss();
                         break;
 
                     case 3:

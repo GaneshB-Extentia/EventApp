@@ -35,7 +35,7 @@ public class BusFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 ((EventActivity) getActivity()).mToolbar.setTitle("Depot List");
-                getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(new BusListFragment().getClass().getSimpleName()).add(R.id.container, new BusListFragment()).commitAllowingStateLoss();
+                getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(new BusListFragment().getClass().getSimpleName()).add(R.id.container, new BusListFragment(),"Depot List").commitAllowingStateLoss();
             }
         });
 
@@ -44,7 +44,7 @@ public class BusFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 ((EventActivity) getActivity()).mToolbar.setTitle("Search Bus");
-                getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(new BusFareFragment().getClass().getSimpleName()).add(R.id.container, new BusFareFragment()).commitAllowingStateLoss();
+                getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(new BusFareFragment().getClass().getSimpleName()).add(R.id.container, new BusFareFragment(), "Bus Fare").commitAllowingStateLoss();
             }
         });
 
@@ -53,7 +53,7 @@ public class BusFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 ((EventActivity) getActivity()).mToolbar.setTitle("Buy Bus Tickets");
-                getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(new BusFareFragment().getClass().getSimpleName()).add(R.id.container, new BusFareFragment()).commitAllowingStateLoss();
+                getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(new BusFareFragment().getClass().getSimpleName()).add(R.id.container, new BusFareFragment(), "Buy Tickets").commitAllowingStateLoss();
             }
         });
     }

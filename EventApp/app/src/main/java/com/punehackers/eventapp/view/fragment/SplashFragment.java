@@ -25,7 +25,7 @@ public class SplashFragment extends Fragment {
             @Override
             public void run() {
                 ((EventActivity)getActivity()).mCurrentFragment=new HomeFragment();
-                getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(new HomeFragment().getClass().getSimpleName()).add(R.id.container,  ((EventActivity)getActivity()).mCurrentFragment).commitAllowingStateLoss();
+                getActivity().getSupportFragmentManager().beginTransaction().addToBackStack(new HomeFragment().getClass().getSimpleName()).add(R.id.container,  ((EventActivity)getActivity()).mCurrentFragment, "Home").commitAllowingStateLoss();
                 finishFragment();
             }
         }, SPLASH_TIME_OUT);
