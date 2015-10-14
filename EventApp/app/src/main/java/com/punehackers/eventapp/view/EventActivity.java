@@ -26,7 +26,7 @@ import com.punehackers.eventapp.view.fragment.TutorialFragment;
 import java.util.List;
 
 /**
- * Created by user on 03-10-2015.
+ * Created by Ganesh Bahirat on 03-10-2015.
  */
 public class EventActivity extends AppCompatActivity implements
         NavigationView.OnNavigationItemSelectedListener, View.OnClickListener  {
